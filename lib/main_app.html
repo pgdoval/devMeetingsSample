@@ -3,19 +3,58 @@
   is governed by a BSD-style license that can be found in the LICENSE file.
 -->
 
+<link rel="import" href="../../packages/polymer_elements/paper_menu.html">
+<link rel="import" href="../../packages/polymer_elements/paper_input.html">
+
 <dom-module id="main-app">
     <style>
+
+        /*@blue_cords: #223344;*/
+        /*@pure_white: #FFFFFF;*/
+        /*@faded_denim: #6699AA;*/
+        /*@orange: #FF6200;*/
+        /*@disabled: #888888;*/
+        /*@softie: #DDDDEE;*/
+        /*@atlantis: #447788;*/
+
         :host {
             display: block;
+            position:fixed;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
         }
-        h1{
-            color: red;
+        #menu{
+            display: block;
+            background: #223344;
+            width:12%;
+            height:100%;
+            border-right: 1px solid #888888;
+            color: #ffffff;
+            padding: 0;
+        }
+        paper-item{
+            float: left;
+            width: 100%;
+            border-bottom: 1px solid white;
+            height: 10vh;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            line-height: 10vh;
+            letter-spacing: 1px;
+        }
+
+        paper-item:hover{
+            background: #6699AA;
         }
     </style>
 
     <template>
-
-        <h1> Hello DevMeetings! </h1>
-
+        <paper-menu id="menu">
+            <paper-item >Search users</paper-item>
+            <paper-item >Premium users</paper-item>
+        </paper-menu>
     </template>
 </dom-module>

@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
 
+/// Uses [PaperInput, PaperMenu]
 @PolymerRegister('main-app')
 class MainApp extends PolymerElement {
 
