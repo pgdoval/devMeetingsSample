@@ -9,14 +9,6 @@
 <dom-module id="main-app">
     <style>
 
-        /*@blue_cords: #223344;*/
-        /*@pure_white: #FFFFFF;*/
-        /*@faded_denim: #6699AA;*/
-        /*@orange: #FF6200;*/
-        /*@disabled: #888888;*/
-        /*@softie: #DDDDEE;*/
-        /*@atlantis: #447788;*/
-
         :host {
             display: block;
             position:fixed;
@@ -29,11 +21,21 @@
             display: block;
             background: #223344;
             width:12%;
+            float:left;
             height:100%;
             border-right: 1px solid #888888;
             color: #ffffff;
             padding: 0;
         }
+        #pages{
+            display: block;
+            width:87.8%;
+            float:left;
+            height:100%;
+            color: #000;
+            padding: 0;
+        }
+
         paper-item{
             float: left;
             width: 100%;
@@ -52,9 +54,16 @@
     </style>
 
     <template>
-        <paper-menu id="menu">
-            <paper-item >Search users</paper-item>
-            <paper-item >Premium users</paper-item>
+        <paper-menu id="menu" on-iron-select="navigateToPage" selected="{{selectedIndex}}">
+
+            <template is="dom-repeat" items="{{pages}}" >
+                <paper-item data-position="{{index}}" id="{{item.path}}" >{{item.name}}</paper-item>
+            </template>
+
         </paper-menu>
+
+        <div id="pages" layout horizontal center-center fit>
+
+        </div>
     </template>
 </dom-module>
