@@ -55,6 +55,9 @@ class MainApp extends PolymerElement {
   @Property(notify: true)
   int selectedIndex = 0;
 
+  @Property(notify: true)
+  String selectedName;
+
 
 
 
@@ -90,6 +93,12 @@ class MainApp extends PolymerElement {
       {
         child.remove();
       }
+
+      //Update the title. Sometimes you need to call notifyPath, which updates
+      //a property's value and tells its observers to look for its new value.
+      //This usually happens with subproperties.
+
+      notifyPath("selectedName", newPage.name);
 
       //Load new page
       pageContainer.append(new Element.tag(newPage.element));

@@ -1,0 +1,117 @@
+<link rel="import" href="../../packages/polymer_elements/iron_flex_layout_classes.html">
+<link rel="import" href="../../packages/polymer_elements/paper_button.html">
+
+<dom-module id="user-description-element">
+    <style include="iron-flex">
+
+        :host {
+            display: block;
+            position: relative;
+            width: 80%;
+            height: 80%;
+            margin: 7vh;
+            background-color: #DDDDEE;
+
+
+        }
+        .layout.horizontal>div{
+            width:50%;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        #user-photo{
+            width: 70%;
+            margin: 4vh;
+            height: 80%;
+            background-color: blueviolet;
+            background-size: cover;
+            position: relative;
+            float: left;
+            min-height: 20vh;
+        }
+
+        .user-name{
+            display: block;
+            position: relative;
+            height:3vh;
+            width:100%;
+            float: left;
+            font-size: 1.3em;
+            padding:1% 5%;
+            text-align: center;
+        }
+        .twitter{
+            display: block;
+            position: relative;
+            height:3vh;
+            width:100%;
+            float: left;
+            font-size: 1.1em;
+            padding:1% 5%;
+            text-align: center;
+            font-weight: bold;
+            color: #6699AA;
+        }
+        .user-data{
+            font-size: 1.35em;
+            position: relative;
+            float: left;
+            width: 100%;
+
+        }
+        .ability-title{
+            font-weight: bold;
+            color: #6699AA;
+        }
+        .languages-title{
+            height:6vh;
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2em;
+            color: #FF6200;
+        }
+        .languages{
+            margin: 6% 8%;
+            height: 80%;
+        }
+        .make-premium{
+            height: 7vh;
+            width: 100%;
+            color: #FF6200;
+        }
+        #premium{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+    </style>
+
+    <template>
+        <div class="layout horizontal">
+            <div class="layout vertical flex">
+                <div id = "user-photo" class="flex" style=""> </div>
+                <div class="user-name">{{user.name}}</div>
+                <div class="twitter">{{user.twitter}}</div>
+            </div>
+            <div class="layout around-justified vertical languages">
+                <div class = "languages-title ">Technologies</div>
+                <div class="flex layout around-justified vertical">
+                    <template is="dom-repeat" items="{{user.languages}}">
+                        <div class="flex user-data "><span class="ability-title">{{item.name}}</span>: {{item.value}}</div>
+                    </template>
+                </div>
+                <div class = "make-premium ">
+                    <template is="dom-if" if="{{!user.premium}}">
+                        <paper-button id="premium" raised>Make premium</paper-button>
+                    </template>
+                    <template is="dom-if" if="{{user.premium}}">
+                        <paper-button id="premium" raised>Revoke premium</paper-button>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</dom-module>

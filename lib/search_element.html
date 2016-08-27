@@ -3,12 +3,22 @@
 
         :host {
             display: block;
-
+            width: 100%;
+            height: 100%;
+        }
+        #container {
+            position: relative;
+            width:50%;
+            height:50%;
+            float:left;
         }
 
     </style>
 
     <template>
-Search!
+
+        <div id = "container">
+            <user-description-element></user-description-element>
+        </div>
     </template>
 </dom-module>
