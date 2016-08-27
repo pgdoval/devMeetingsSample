@@ -16,5 +16,70 @@ class SearchElement extends PolymerElement {
   /// Constructor used to create instance of MainApp.
   SearchElement.created() : super.created();
 
+  @property
+  List<Map> users =[
+    {
+      "photo": null,
+      "name": "Pablo González Doval",
+      "twitter": "@dovaleac",
+      "premium": true,
+      "languages": [{
+        "name": "Dart",
+        "value": "I love it!"
+      }, {
+        "name": "Polymer",
+        "value": "It's amazing!"
+      }, {
+        "name": "Groovy",
+        "value": "It's so easy, man!"
+      }]
+    },{
+      "photo": null,
+      "name": "Pablo González Doval",
+      "twitter": "@dovaleac",
+      "premium": true,
+      "languages": [{
+        "name": "Dart",
+        "value": "I love it!"
+      }, {
+        "name": "Polymer",
+        "value": "It's amazing!"
+      }, {
+        "name": "Groovy",
+        "value": "It's so easy, man!"
+      }]
+    },{
+      "photo": null,
+      "name": "Pablo González Doval",
+      "twitter": "@dovaleac",
+      "premium": true,
+      "languages": [{
+        "name": "Dart",
+        "value": "I love it!"
+      }, {
+        "name": "Polymer",
+        "value": "It's amazing!"
+      }, {
+        "name": "Groovy",
+        "value": "It's so easy, man!"
+      }]
+    },{
+      "photo": null,
+      "name": "Pablo González Doval",
+      "twitter": "@dovaleac",
+      "premium": true,
+      "languages": [{
+        "name": "Dart",
+        "value": "I love it!"
+      }, {
+        "name": "Polymer",
+        "value": "It's amazing!"
+      }, {
+        "name": "Groovy",
+        "value": "It's so easy, man!"
+      }]
+    }
+  ]
 
+  ;
 }
