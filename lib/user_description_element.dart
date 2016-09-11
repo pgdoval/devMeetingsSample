@@ -19,6 +19,16 @@ class UserDescriptionElement extends PolymerElement {
   Map user;
 
 
+  @reflectable
+  String getBackground(_user)
+  {
+    var image = _user['photo'];
 
+    if(image==null)
+      return "url(../../images/user.png)";
+
+
+      return "url(../../images/$image)";
+  }
 
 }

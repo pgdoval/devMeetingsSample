@@ -8,6 +8,7 @@ import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
 import 'package:dev_meetings_sample/user_description_element.dart';
+import 'package:polymer_elements/iron_request.dart';
 
 
 @PolymerRegister('search-element')
@@ -17,69 +18,13 @@ class SearchElement extends PolymerElement {
   SearchElement.created() : super.created();
 
   @property
-  List<Map> users =[
-    {
-      "photo": null,
-      "name": "Pablo González Doval",
-      "twitter": "@dovaleac",
-      "premium": true,
-      "languages": [{
-        "name": "Dart",
-        "value": "I love it!"
-      }, {
-        "name": "Polymer",
-        "value": "It's amazing!"
-      }, {
-        "name": "Groovy",
-        "value": "It's so easy, man!"
-      }]
-    },{
-      "photo": null,
-      "name": "Pablo González Doval",
-      "twitter": "@dovaleac",
-      "premium": true,
-      "languages": [{
-        "name": "Dart",
-        "value": "I love it!"
-      }, {
-        "name": "Polymer",
-        "value": "It's amazing!"
-      }, {
-        "name": "Groovy",
-        "value": "It's so easy, man!"
-      }]
-    },{
-      "photo": null,
-      "name": "Pablo González Doval",
-      "twitter": "@dovaleac",
-      "premium": true,
-      "languages": [{
-        "name": "Dart",
-        "value": "I love it!"
-      }, {
-        "name": "Polymer",
-        "value": "It's amazing!"
-      }, {
-        "name": "Groovy",
-        "value": "It's so easy, man!"
-      }]
-    },{
-      "photo": null,
-      "name": "Pablo González Doval",
-      "twitter": "@dovaleac",
-      "premium": true,
-      "languages": [{
-        "name": "Dart",
-        "value": "I love it!"
-      }, {
-        "name": "Polymer",
-        "value": "It's amazing!"
-      }, {
-        "name": "Groovy",
-        "value": "It's so easy, man!"
-      }]
-    }
-  ]
+  List<Map> users;
 
-  ;
+  @reflectable
+  void updateUsers(event, data)
+  {
+    var response = data.parseResponse();
+    notifyPath("users", response);
+  }
+
 }

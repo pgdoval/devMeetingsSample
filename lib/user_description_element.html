@@ -9,7 +9,7 @@
             position: relative;
             width: 80%;
             height: 80%;
-            margin: 7vh;
+            margin: 3vh 7vh;
             background-color: #DDDDEE;
 
 
@@ -24,8 +24,9 @@
             width: 70%;
             margin: 4vh;
             height: 80%;
-            background-color: blueviolet;
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
             position: relative;
             float: left;
             min-height: 20vh;
@@ -37,7 +38,7 @@
             height:3vh;
             width:100%;
             float: left;
-            font-size: 1.3em;
+            font-size: 1.1em;
             padding:1% 5%;
             text-align: center;
         }
@@ -51,10 +52,10 @@
             padding:1% 5%;
             text-align: center;
             font-weight: bold;
-            color: #6699AA;
+            color: #FF6200;
         }
         .user-data{
-            font-size: 1.35em;
+            font-size: 1.1em;
             position: relative;
             float: left;
             width: 100%;
@@ -70,7 +71,7 @@
             text-transform: uppercase;
             font-weight: bold;
             font-size: 2em;
-            color: #FF6200;
+            color: #447788;
         }
         .languages{
             margin: 6% 8%;
@@ -79,11 +80,12 @@
         .make-premium{
             height: 7vh;
             width: 100%;
-            color: #FF6200;
+            color: #447788;
         }
         #premium{
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
         }
 
     </style>
@@ -91,7 +93,7 @@
     <template>
         <div class="layout horizontal">
             <div class="layout vertical flex">
-                <div id = "user-photo" class="flex" style=""> </div>
+                <div id = "user-photo" class="flex" style$="background-image: [[getBackground(user)]]"> </div>
                 <div class="user-name">{{user.name}}</div>
                 <div class="twitter">{{user.twitter}}</div>
             </div>
