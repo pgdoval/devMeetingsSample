@@ -1,14 +1,36 @@
+<link rel="import" href="../../packages/polymer_elements/iron_flex_layout_classes.html">
+<link rel="import" href="../../packages/polymer_elements/iron_ajax.html">
+
 <dom-module id="premium-element">
-    <style>
+    <style include="iron-flex">
 
         :host {
             display: block;
-
+            width: 100%;
+            height: 100%;
+        }
+        .description-container{
+            width:50%;
         }
 
     </style>
 
     <template>
-Premium!
+        <!-- 7/ Same iron-ajax, different URL-->
+        <iron-ajax
+                auto
+                id ="allUsers"
+                url="http://localhost:8081/premiumUsers/"
+                handle-as="json"
+                on-response="updateUsers">
+        </iron-ajax>
+
+        <div class = "layout horizontal wrap" id = "user-container">
+            <template is="dom-repeat" items="{{users}}">
+                <div class = "description-container">
+                    <user-description-element user="{{item}}"></user-description-element>
+                </div>
+            </template>
+        </div>
     </template>
 </dom-module>

@@ -92,7 +92,6 @@
 
     <template>
 
-        <!-- 7/ This iron-ajax does a POST call and its URL includes a calculated data-->
         <iron-ajax
                 id ="premium-ajax"
                 url="http://localhost:8081/premium/{{user.id}}"
@@ -115,7 +114,6 @@
                     </template>
                 </div>
                 <div class = "make-premium ">
-                    <!-- 6/ on-tap to call the function that will look at the backend-->
                     <template is="dom-if" if="{{!user.premium}}">
                         <paper-button id="premium" raised on-tap="togglePremium">Make premium</paper-button>
                     </template>
