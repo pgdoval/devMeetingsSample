@@ -91,6 +91,16 @@
     </style>
 
     <template>
+
+        <!-- 7/ This iron-ajax does a POST call and its URL includes a calculated data-->
+        <iron-ajax
+                id ="premium-ajax"
+                url="http://localhost:8081/premium/{{user.id}}"
+                handle-as="json"
+                method="POST"
+                on-response="reflectPremiumChange">
+        </iron-ajax>
+
         <div class="layout horizontal">
             <div class="layout vertical flex">
                 <div id = "user-photo" class="flex" style$="background-image: [[getBackground(user)]]"> </div>
@@ -105,11 +115,12 @@
                     </template>
                 </div>
                 <div class = "make-premium ">
+                    <!-- 6/ on-tap to call the function that will look at the backend-->
                     <template is="dom-if" if="{{!user.premium}}">
-                        <paper-button id="premium" raised>Make premium</paper-button>
+                        <paper-button id="premium" raised on-tap="togglePremium">Make premium</paper-button>
                     </template>
                     <template is="dom-if" if="{{user.premium}}">
-                        <paper-button id="premium" raised>Revoke premium</paper-button>
+                        <paper-button id="premium" raised on-tap="togglePremium">Revoke premium</paper-button>
                     </template>
                 </div>
             </div>

@@ -1,5 +1,4 @@
-// Copyright (c) 2016, Pablo González Doval. All rights reserved. Use of this source code
-// is governed by a BSD-style license that can be found in the LICENSE file.
+
 @HtmlImport('user_description_element.html')
 library dev_meetings_sample.userDescription;
 
@@ -8,11 +7,11 @@ import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
 
+import 'package:polymer_elements/iron_ajax.dart';
 
 @PolymerRegister('user-description-element')
 class UserDescriptionElement extends PolymerElement {
 
-  /// Constructor used to create instance of MainApp.
   UserDescriptionElement.created() : super.created();
 
   @property
@@ -29,6 +28,25 @@ class UserDescriptionElement extends PolymerElement {
 
 
       return "url(../../images/$image)";
+  }
+
+  // 9/ Generating and executing the ajax request when needed
+  @reflectable
+  void togglePremium(a, _)
+  {
+    IronAjax ajax = querySelector("#premium-ajax");
+
+    ajax.params = {"value": !user['premium']};
+
+    ajax.generateRequest();
+  }
+
+  // 6/ When the backend does its job, it returns the user. We just want to notify that the user has changed
+  @reflectable
+  void reflectPremiumChange(event, data)
+  {
+    var response = data.parseResponse();
+    notifyPath("user", response);
   }
 
 }
