@@ -30,7 +30,6 @@ class UserDescriptionElement extends PolymerElement {
       return "url(../../images/$image)";
   }
 
-  // 9/ Generating and executing the ajax request when needed
   @reflectable
   void togglePremium(a, _)
   {
@@ -41,7 +40,6 @@ class UserDescriptionElement extends PolymerElement {
     ajax.generateRequest();
   }
 
-  // 6/ When the backend does its job, it returns the user. We just want to notify that the user has changed
   @reflectable
   void reflectPremiumChange(event, data)
   {
