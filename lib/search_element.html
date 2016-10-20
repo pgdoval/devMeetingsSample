@@ -45,7 +45,8 @@
         <div class = "layout horizontal wrap" id = "user-container">
             <template is="dom-repeat" items="{{users}}">
                 <div class = "description-container">
-                    <user-description-element user="{{item}}"></user-description-element>
+                    <!-- We set premium to true -->
+                    <user-description-element premium="true" user="{{item}}"></user-description-element>
                 </div>
             </template>
         </div>

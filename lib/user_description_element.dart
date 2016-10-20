@@ -17,6 +17,9 @@ class UserDescriptionElement extends PolymerElement {
   @property
   Map user;
 
+  // 2/ Adding premium property
+  @property
+  boolean premium;
 
   @reflectable
   String getBackground(_user)

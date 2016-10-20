@@ -16,7 +16,6 @@
     </style>
 
     <template>
-        <!-- 7/ Same iron-ajax, different URL-->
         <iron-ajax
                 auto
                 id ="allUsers"
@@ -28,6 +27,7 @@
         <div class = "layout horizontal wrap" id = "user-container">
             <template is="dom-repeat" items="{{users}}">
                 <div class = "description-container">
+                    <!-- We don't need a premium=false here -->
                     <user-description-element user="{{item}}"></user-description-element>
                 </div>
             </template>

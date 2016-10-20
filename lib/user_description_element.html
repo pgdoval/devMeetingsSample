@@ -114,11 +114,14 @@
                     </template>
                 </div>
                 <div class = "make-premium ">
-                    <template is="dom-if" if="{{!user.premium}}">
-                        <paper-button id="premium" raised on-tap="togglePremium">Make premium</paper-button>
-                    </template>
-                    <template is="dom-if" if="{{user.premium}}">
-                        <paper-button id="premium" raised on-tap="togglePremium">Revoke premium</paper-button>
+                <!-- 8/ Showing buttons if premium property is activated -->
+                    <template is="dom-if" if="{{premium}}">
+                        <template is="dom-if" if="{{!user.premium}}">
+                            <paper-button id="premium" raised on-tap="togglePremium">Make premium</paper-button>
+                        </template>
+                        <template is="dom-if" if="{{user.premium}}">
+                            <paper-button id="premium" raised on-tap="togglePremium">Revoke premium</paper-button>
+                        </template>
                     </template>
                 </div>
             </div>
